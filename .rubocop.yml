@@ -1,0 +1,178 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'doc/**/*'
+    - 'log/**/*'
+    - 'script/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
+Style/Documentation:
+  Enabled: false
+
+Layout/BeginEndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: begin
+
+Layout/BlockAlignment:
+  EnforcedStyleAlignWith: either
+
+Layout/ClassStructure:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - 'spec/**/*'
+
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 125
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'features/step_definitions/**/*.rb'
+
+Layout/SpaceBeforeBrackets: # (new in 1.7)
+  Enabled: true
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
+Lint/EmptyWhen:
+  Enabled: false
+
+Lint/EmptyBlock:
+  Enabled: false
+
+Lint/InheritException:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Max: 14
+  Enabled: true
+
+Metrics/BlockLength:
+  Max: 50
+  IgnoredMethods:
+    - aasm
+  Exclude:
+    - 'app/admin/**/*'
+    - 'spec/**/*.rb'
+    - 'features/**/*.rb'
+    - 'lib/tasks/**/*'
+    - 'app/views/admin/originators/_billing_policy_table.arb'
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 50
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'features/**/*.rb'
+
+Metrics/ClassLength:
+  Max: 140
+  Exclude:
+    - 'app/admin/**/*'
+    - 'app/models/**/*'
+    - 'app/imports/**/*'
+    - 'app/controllers/**/*'
+    - 'spec/**/*.rb'
+    - 'features/**/*.rb'
+
+Rails:
+  Enabled: true
+
+# TODO enable when fixed
+Rails/ActiveRecordOverride:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+# Este é um bom cop, mas não funciona bem. Mesmo com "AllowImplicitReturn", ele
+# alerta sobre casos em que o valor é retornado caso não esteja no top-level do
+# método.
+Rails/SaveBang:
+  Enabled: false
+  AllowImplicitReturn: true
+
+Rails/SkipsModelValidations:
+  AllowedMethods:
+    - touch
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'app/admin/charging_bank_account.rb'
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/ExpectChange:
+  EnforcedStyle: block
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/EmptyLineAfterSubject:
+  Exclude:
+    - 'spec/factories/**/*'
+
+RSpec/FactoryBot/AttributeDefinedStatically:
+  Enabled: true
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+# TODO: Reduce this later.
+RSpec/NestedGroups:
+  Max: 8
+
+RSpec/Rails/HttpStatus:
+  Enabled: false
+
+RSpec/SubjectStub:
+  Enabled: false
+
+Naming/AsciiIdentifiers:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Naming/PredicateName:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false

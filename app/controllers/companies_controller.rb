@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :update, :destroy]
+  before_action :set_company, only: %i[show update destroy]
 
   # GET /companies
   def index
@@ -9,13 +11,13 @@ class CompaniesController < ApplicationController
 
   # GET /companies_without_required_employees
   def companies_without_required_employees
-    @companies = Company::CheckCompaniesEmployees.new.call
+    @companies = CompanyBusiness::CheckCompaniesEmployees.new.call
     json_response(@companies)
   end
 
   # POST /companies
   def create
-    @company = Company::CreateCompany.new(company_params).call
+    @company = CompanyBusiness::CreateCompany.new(company_params).call
     if @company.is_a? Company
       json_response(@company, :created)
     else

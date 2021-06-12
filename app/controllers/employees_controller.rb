@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: [:show, :update, :destroy]
+  before_action :set_employee, only: %i[show update destroy]
 
   # POST /employees
   def create

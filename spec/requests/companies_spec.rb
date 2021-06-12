@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Companies', type: :request do
@@ -64,8 +66,12 @@ RSpec.describe 'Companies', type: :request do
   end
 
   describe 'POST /companies' do
-    let(:valid_attributes) { { company: { area_of_practice: 'city', required_employees_amount: 1, parent_company_id: company_id } } }
-    let(:invalid_attributes) { { company: { area_of_practice: 'country', required_employees_amount: 1, parent_company_id: company_id } } }
+    let(:valid_attributes) do
+      { company: { area_of_practice: 'city', required_employees_amount: 1, parent_company_id: company_id } }
+    end
+    let(:invalid_attributes) do
+      { company: { area_of_practice: 'country', required_employees_amount: 1, parent_company_id: company_id } }
+    end
 
     context 'when the request is valid' do
       before { post '/companies', params: valid_attributes }
@@ -79,7 +85,6 @@ RSpec.describe 'Companies', type: :request do
         expect(response).to have_http_status(201)
       end
     end
-
 
     context 'when the request is invalid' do
       before { post '/companies', params: invalid_attributes }

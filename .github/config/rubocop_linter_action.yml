@@ -1,0 +1,4 @@
+# .github/config/rubocop_linter_action.yml
+
+rubocop_extensions:
+  - 'rubocop-performance': '1.5.1'
