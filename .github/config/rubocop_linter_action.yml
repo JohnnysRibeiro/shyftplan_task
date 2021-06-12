@@ -3,4 +3,3 @@
 rubocop_extensions:
   - 'rubocop-performance': '1.5.1'
   - 'rubocop-rails'
-  - 'rubocop-rspec'
