@@ -4,28 +4,28 @@ class CompaniesController < ApplicationController
   # GET /companies
   def index
     @companies = Company.all
-    render json: @companies
+    json_response(@companies)
   end
 
   # GET /companies_without_required_employees
   def companies_without_required_employees
     @companies = Company::CheckCompaniesEmployees.new.call
-    render json: @companies
+    json_response(@companies)
   end
 
   # POST /companies
   def create
     @company = Company::CreateCompany.new(company_params).call
     if @company.is_a? Company
-      render json: @company, status: :created
+      json_response(@company, :created)
     else
-      render json: @company, status: 400
+      json_response(@company, status: 400)
     end
   end
 
   # GET /companies/:id
   def show
-    render json: @company
+    json_response(@company)
   end
 
   # PUT /companies/:id
