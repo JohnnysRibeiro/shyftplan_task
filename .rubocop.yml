@@ -11,6 +11,7 @@ AllCops:
     - 'vendor/**/*'
 
 require:
+  - rubocop-rspec
   - rubocop-rails
 
 Style/Documentation:
@@ -122,6 +123,47 @@ Rails/SkipsModelValidations:
   Exclude:
     - 'spec/**/*.rb'
     - 'app/admin/charging_bank_account.rb'
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/ExpectChange:
+  EnforcedStyle: block
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/EmptyLineAfterSubject:
+  Exclude:
+    - 'spec/factories/**/*'
+
+RSpec/FactoryBot/AttributeDefinedStatically:
+  Enabled: true
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+# TODO: Reduce this later.
+RSpec/NestedGroups:
+  Max: 8
+
+RSpec/Rails/HttpStatus:
+  Enabled: false
+
+RSpec/SubjectStub:
+  Enabled: false
 
 Naming/AsciiIdentifiers:
   Enabled: false
