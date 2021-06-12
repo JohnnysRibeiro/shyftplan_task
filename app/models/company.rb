@@ -4,4 +4,6 @@ class Company < ApplicationRecord
   has_many :employees
 
   belongs_to :parent_company, class_name: "Company", optional: true
+
+  as_enum :area_of_practice, [:country, :region, :city], prefix: true, map: :string
 end
