@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :company do
     area_of_practice_cd { "country" }
-    required_employees_amount { 14 }
+    required_employees_amount { 5 }
   end
 end

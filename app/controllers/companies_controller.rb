@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
     if @company.is_a? Company
       json_response(@company, :created)
     else
-      json_response(@company, status: 400)
+      json_response(@company, 422)
     end
   end
 
