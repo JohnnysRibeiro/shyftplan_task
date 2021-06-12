@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_06_12_132620) do
 
   create_table "companies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.bigint "required_employees_amount"
-    t.string "area_of_practice"
+    t.string "area_of_practice_cd"
     t.uuid "parent_company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
